@@ -184,7 +184,10 @@ def result(cmd,S,P,F,C,R,A,I,T,pt,un,rm):
 
 #write terminal log
 def write(time, data):
-	fw = open('/usr/local/google/home/chienliu/Downloads/android-cts/logs/'+str(dt.date.today().year)+'.'+time+'/Terminal_logs', "w")
+	if Mode == 'gsi':
+		fw = open('/usr/local/google/home/chienliu/Downloads/android-cts/logs/'+str(dt.date.today().year)+'.'+time+'/Terminal_logs', "w")
+	else:
+		fw = open("/usr/local/google/home/chienliu/Downloads/android-"+Mode+"/logs/"+str(dt.date.today().year)+'.'+time+'/Terminal_logs', "w")
 	fw.write(data)
 	fw.close()
 
